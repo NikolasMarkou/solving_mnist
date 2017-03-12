@@ -28,7 +28,7 @@ Every pixel is a feature.
 
 Accuracy after 500k iterations 0.925 ~ error 7.5%
 
-Number of parameters SoftMax(A*x + b) => (25*25) * 10 + 10= 6260
+Number of parameters : 6260
 
 ```
 name: "MNIST_NET"
