@@ -34,8 +34,6 @@ Number of parameters : 6260
 
 ### Notes
 
-### Notes
-
 Accuracy after 500k iterations 0.983 ~ error 1.17%
 
 ## 2 Layer Neural Network Classifier with PReLU
@@ -45,7 +43,6 @@ Accuracy after 500k iterations 0.983 ~ error 1.17%
 Accuracy after 500k iterations 0.983 ~ error 1.17%
 
 Faster convergence than ReLU
-
 
 ## 3 Layer Neural Network 256 - 128 - 10 with PReLU 
 
