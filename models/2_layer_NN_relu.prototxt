@@ -87,7 +87,7 @@ layer {
 }
 
 layer {
-  name: "fc_128/reulu"
+  name: "fc_128/relu"
   type: "ReLU"
   bottom: "fc_128"
   top: "fc_128"
