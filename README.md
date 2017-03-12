@@ -57,3 +57,11 @@ Accuracy after 500k iterations 0.986 ~ error 1.14%
 This one uses the custom dataset expansion layer that randomly transforms the input with noise and affine transformations
 
 Accuracy after 500k iterations 0.9912 ~ error 0.88%
+
+## 2 Layer CNN (36 kernels 3x3 stride 2) (28 kernels 3x3 stride) with PReLU and dataset expansion layer
+
+### Notes
+
+This one uses the custom dataset expansion layer that randomly transforms the input with noise and affine transformations
+
+Accuracy after 500k iterations 0.9906 ~ error 0.94%
