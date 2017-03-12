@@ -64,4 +64,4 @@ Accuracy after 500k iterations 0.9912 ~ error 0.88%
 
 This one uses the custom dataset expansion layer that randomly transforms the input with noise and affine transformations
 
-Accuracy after 500k iterations 0.9906 ~ error 0.94%
+Accuracy after 500k iterations 0.991 ~ error 0.9%
