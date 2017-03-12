@@ -22,7 +22,7 @@ Custom layers will be noted with and asterisk.
 
 * weight decay 
 
-## Linear Classifier - Baseline
+## [Linear Classifier - Baseline](models/linear_classifier.prototxt)
 
 ### Notes
 
@@ -30,13 +30,13 @@ Accuracy after 500k iterations 0.925 ~ error 7.5%
 
 Number of parameters : 6260
 
-## 2 Layer Neural Network Classifier with ReLU
+## [2 Layer Neural Network Classifier with ReLU](models/2_layer_NN_relu.prototxt.prototxt)
 
 ### Notes
 
 Accuracy after 500k iterations 0.983 ~ error 1.17%
 
-## 2 Layer Neural Network Classifier with PReLU
+## [2 Layer Neural Network Classifier with PReLU](models/2_layer_NN_prelu.prototxt)
 
 ### Notes
 
@@ -44,13 +44,13 @@ Accuracy after 500k iterations 0.983 ~ error 1.17%
 
 Faster convergence than ReLU
 
-## 3 Layer Neural Network 256 - 128 - 10 with PReLU 
+## [3 Layer Neural Network 256 - 128 - 10 with PReLu](models/3_layer_NN_256_128_10.prototxt)
 
 ### Notes
 
 Accuracy after 500k iterations 0.986 ~ error 1.14%
 
-## 3 Layer Neural Network 256 - 128 - 10 with PReLU and dataset expansion layer
+## [3 Layer Neural Network 256 - 128 - 10 with PReLU and dataset expansion layer](models/3_layer_NN_256_128_10_with_dataset_expansion.prototxt)
 
 ### Notes
 
@@ -58,7 +58,7 @@ This one uses the custom dataset expansion layer that randomly transforms the in
 
 Accuracy after 500k iterations 0.9912 ~ error 0.88%
 
-## 2 Layer CNN (36 kernels 3x3 stride 2) (28 kernels 3x3 stride) with PReLU and dataset expansion layer
+## [2 Layer CNN (36 kernels 3x3 stride 2) (28 kernels 3x3 stride) with PReLU and dataset expansion](models/cnn_2_layer_dataset_expansion.prototxt 	)
 
 ### Notes
 
