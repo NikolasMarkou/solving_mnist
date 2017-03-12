@@ -1,0 +1,243 @@
+ name: "MNIST_NET"
+############################
+layer {
+  name: "data"
+  type: "ImageData"
+  top: "data"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  image_data_param {
+    is_color : false
+    shuffle : true
+    source: "train.txt"
+    batch_size: 200
+    crop_size : 25
+  }
+}
+layer {
+  name: "data"
+  type: "ImageData"
+  top: "data"
+  top: "label"
+  include {
+    phase: TEST
+  }
+  image_data_param {
+    is_color : false
+    shuffle : true
+    source: "test.txt"
+    batch_size: 100
+    crop_size : 25
+  }
+}
+############################
+## Scale from [0-255] [-1 +1]
+layer {
+  name: "data/scaling"
+  type: "Power"
+  bottom: "data"
+  top: "data"
+  power_param {
+    power: 1
+    scale: 0.0078125
+    shift: -1.0
+  }
+}
+############################
+layer {
+  name: "data/drop"
+  type: "Dropout"
+  bottom: "data"
+  top: "data"
+  dropout_param {
+    dropout_ratio: 0.01
+  }
+  include {
+    phase: TRAIN
+  }
+}
+############################
+layer {
+  name: "data_vision"
+  type: "VisionTransformation"
+  bottom: "data"
+  top: "data"
+  vision_transformation_param {
+    noise_mean : 0.0
+    noise_std : 0.1
+    noise_std_small : 0.0
+    rotate_min_angle : -20
+    rotate_max_angle : 20
+    rotate_fill_value : 0.0
+    per_pixel_multiplier_mean : 1.0
+    per_pixel_multiplier_std : 0.00
+    rescale_probability : 0.25
+    constant_multiplier_mean : 1.0
+    constant_multiplier_std : 0.00
+    constant_multiplier_color_mean : 0.0
+    constant_multiplier_color_std : 0.0
+    scale_mean : 1.0
+    scale_std : 0.25
+    value_cap_min : 0
+    value_cap_max : 0
+    passthrough_probability : 0.5
+  }
+  include {
+    phase: TRAIN
+  }
+}
+############################
+
+layer {
+  name: "fc_256"
+  type: "InnerProduct"
+  bottom: "data"
+  top: "fc_256"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 256
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      std: 0
+    }
+  }
+}
+
+layer {
+  name: "fc_256/prelu"
+  type: "PReLU"
+  bottom: "fc_256"
+  top: "fc_256"
+  prelu_param: {
+     filler:{
+        type: "constant"
+        value:0.1
+     }
+  }
+}
+
+layer {
+  name: "fc_256/drop"
+  type: "Dropout"
+  bottom: "fc_256"
+  top: "fc_256"
+  dropout_param {
+    dropout_ratio: 0.25
+  }
+  include {
+    phase: TRAIN
+  }
+}
+
+layer {
+  name: "fc_128"
+  type: "InnerProduct"
+  bottom: "fc_256"
+  top: "fc_128"
+  param {
+    lr_mult: 2.5
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 5
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 128
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      std: 0
+    }
+  }
+}
+
+layer {
+  name: "fc_128/prelu"
+  type: "PReLU"
+  bottom: "fc_128"
+  top: "fc_128"
+  prelu_param: {
+     filler:{
+        type: "constant"
+        value:0.1
+     }
+  }
+}
+
+layer {
+  name: "fc_128/drop"
+  type: "Dropout"
+  bottom: "fc_128"
+  top: "fc_128"
+  dropout_param {
+    dropout_ratio: 0.25
+  }
+  include {
+    phase: TRAIN
+  }
+}
+
+layer {
+  name: "fc_10"
+  type: "InnerProduct"
+  bottom: "fc_128"
+  top: "fc_10"
+  param {
+    lr_mult: 5
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 10
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 10
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      std: 0
+    }
+  }
+}
+
+############################
+layer {
+  name: "loss"
+  type: "SoftmaxWithLoss"
+  bottom: "fc_10"
+  bottom: "label"
+  top: "loss"
+  include {
+    phase: TRAIN
+  }
+}
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "fc_10"
+  bottom: "label"
+  top: "accuracy"
+  include {
+    phase: TEST
+  }
+}
