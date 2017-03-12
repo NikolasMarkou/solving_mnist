@@ -9,6 +9,8 @@ Custom layers will be noted with and asterisk
 
 Pixels are scaled from [0 256] to [-1 +1].
 
+Randomly zeroing pixels out with 1% probability
+
 ## Regularization
 * weight decay 
 
