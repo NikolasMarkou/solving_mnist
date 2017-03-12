@@ -45,3 +45,18 @@ Accuracy after 500k iterations 0.983 ~ error 1.17%
 Accuracy after 500k iterations 0.983 ~ error 1.17%
 
 Faster convergence than ReLU
+
+
+## 3 Layer Neural Network 256 - 128 - 10 with PReLU 
+
+### Notes
+
+Accuracy after 500k iterations 0.986 ~ error 1.14%
+
+## 3 Layer Neural Network 256 - 128 - 10 with PReLU and dataset expansion layer
+
+### Notes
+
+This one uses the custom dataset expansion layer that randomly transforms the input with noise and affine transformations
+
+Accuracy after 500k iterations 0.9912 ~ error 0.88%
