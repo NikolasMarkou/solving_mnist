@@ -60,10 +60,19 @@ This one uses the custom dataset expansion layer that randomly transforms the in
 
 Accuracy after 500k iterations 0.9912 ~ error 0.88%
 
-## [2 Layer CNN (36 kernels 3x3 stride 2) (28 kernels 3x3 stride) with PReLU and dataset expansion](models/cnn_2_layer_dataset_expansion.prototxt 	)
+## [2 Layer CNN (36 kernels 3x3 stride 2) (28 kernels 3x3 stride 1) with PReLU and dataset expansion](models/cnn_2_layer_dataset_expansion.prototxt)
 
 ### Notes
 
 This one uses the custom dataset expansion layer that randomly transforms the input with noise and affine transformations
 
 Accuracy after 3 x 500k iterations 0.9935 ~ error 0.65%
+
+
+## [3 Layer CNN (64 kernels 3x3 stride 1) (256 kernels 3x3 stride 2) (64 kernels 3x3 stride 2) with PReLU and dataset expansion](models/cnn_3_layer_with_dataset_expansion.prototxt)
+
+### Notes
+
+This one uses the custom dataset expansion layer that randomly transforms the input with noise and affine transformations
+
+Accuracy after 3 x 500k iterations 0.994 ~ error 0.6%
