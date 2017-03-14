@@ -22,6 +22,8 @@ Networks are visualized in [netscope](https://ethereon.github.io/netscope/#/edit
 
 * Cropping window of 25x25 to 27x27
 
+* Custom Affine and noise transformation layer in some networks (called data_vision layer)
+
 ## Regularization
 
 * weight decay 
