@@ -1,6 +1,6 @@
 # MNIST
 
-Deep learning pattern recognition on the famous mnist dataset [mnist dataset](http://yann.lecun.com/exdb/mnist/).
+Deep learning pattern recognition on the famous [mnist dataset](http://yann.lecun.com/exdb/mnist/).
 
 Dataset consists of 60.000 training samples and 10.000 test samples of hand-drawn digits of size 28x28 single channel pixels.
 
