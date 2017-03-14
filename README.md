@@ -4,6 +4,10 @@ Deep learning pattern recognition on the famous mnist dataset [mnist dataset](ht
 
 Dataset consists of 60.000 training samples and 10.000 test samples of hand-drawn digits of size 28x28 single channel pixels.
 
+It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image.
+
+It is a good database for people who want to try learning techniques and pattern recognition methods on real-world data while spending minimal efforts on preprocessing and formatting. 
+
 ![Some of mnist samples](images/mnist.png)
 
 ## Framework
