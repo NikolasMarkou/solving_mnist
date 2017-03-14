@@ -32,6 +32,8 @@ Accuracy after 500k iterations 0.925 ~ error 7.5%
 
 Number of parameters : 6260
 
+![Linear Classifier](images/linear_classifier.png)
+
 ## [NN 2 Layer with ReLU](models/2_layer_NN_relu.prototxt.prototxt)
 
 ### Notes
