@@ -99,7 +99,6 @@ This one uses the custom dataset expansion layer that randomly transforms the in
 
 Uses Residual network topology for faster convergence and higher accuracy
 
-Accuracy after 500k iterations 0.996 ~ error 0.4%
+Accuracy after 500k iterations 0.9961 ~ error 0.39%
 
-![CNN 3 Stages Multiscale Residual with PReLU and dataset expansion](images/cnn_3_multiscale_residual.png
-)
+![CNN 3 Stages Multiscale Residual with PReLU and dataset expansion](images/cnn_3_multiscale_residual.png)
