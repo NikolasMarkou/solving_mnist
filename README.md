@@ -60,7 +60,7 @@ Faster convergence than ReLU
 
 Accuracy after 500k iterations 0.986 ~ error 1.14%
 
-![NN 3 Layer 256 - 128 - 10 with PReLU](images/3_layer_NN_256_128_10.png)
+![NN 3 Layer 256 - 128 - 10 with PReLU](images/3_layer_NN_256_128_10_v2.png)
 
 ## [NN 3 Layer 256 - 128 - 10 with PReLU and dataset expansion layer](models/3_layer_NN_256_128_10_with_dataset_expansion.prototxt)
 
