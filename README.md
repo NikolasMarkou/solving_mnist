@@ -68,7 +68,7 @@ Accuracy after 500k iterations 0.986 ~ error 1.14%
 
 ![NN 3 Layer 256 - 128 - 10 with PReLU](images/3_layer_NN_256_128_10_v2.png)
 
-## [NN 3 Layer 256 - 128 - 10 with PReLU and dataset expansion layer](models/3_layer_NN_256_128_10_with_dataset_expansion.prototxt)
+## [NN 3 Layer 256 - 128 - 10 with PReLU and dataset expansion layer \*](models/3_layer_NN_256_128_10_with_dataset_expansion.prototxt)
 
 ### Notes
 
@@ -78,7 +78,7 @@ Accuracy after 500k iterations 0.9912 ~ error 0.88%
 
 ![NN 3 Layer 256 - 128 - 10 with PReLU and dataset expansion layer](images/3_layer_NN_256_128_10_with_dataset_expansion.png)
 
-## [CNN 2 Layer (36 kernels 3x3 stride 2) (28 kernels 3x3 stride 1) with PReLU and dataset expansion](models/cnn_2_layer_dataset_expansion.prototxt)
+## [CNN 2 Layer (36 kernels 3x3 stride 2) (28 kernels 3x3 stride 1) with PReLU and dataset expansion  \*](models/cnn_2_layer_dataset_expansion.prototxt)
 
 ### Notes
 
@@ -88,7 +88,7 @@ Accuracy after 3 x 500k iterations 0.9935 ~ error 0.65%
 
 ![CNN 2 Layer with PReLU and dataset expansion](images/cnn_2_layer_dataset_expansion.png)
 
-## [CNN 3 Layer (64 kernels 3x3 stride 1) (256 kernels 3x3 stride 2) (64 kernels 3x3 stride 2) with PReLU and dataset expansion](models/cnn_3_layer_with_dataset_expansion.prototxt)
+## [CNN 3 Layer (64 kernels 3x3 stride 1) (256 kernels 3x3 stride 2) (64 kernels 3x3 stride 2) with PReLU and dataset expansion  \*](models/cnn_3_layer_with_dataset_expansion.prototxt)
 
 ### Notes
 
@@ -98,7 +98,7 @@ Accuracy after 3 x 500k iterations 0.9945 ~ error 0.55%
 
 ![CNN 3 Layer with PReLU and dataset expansion](images/cnn_3_layer_with_dataset_expansion.png)
 
-## [CNN 3 Stages Multiscale with PReLU and dataset expansion](models/cnn_3_stages_multiscale_with_dataset_expansion.prototxt)
+## [CNN 3 Stages Multiscale with PReLU and dataset expansion  \*](models/cnn_3_stages_multiscale_with_dataset_expansion.prototxt)
 
 ### Notes
 
@@ -108,7 +108,7 @@ Accuracy after 3 x 500k iterations 0.9952 ~ error 0.48%
 
 ![CNN 3 Stages Multiscale with PReLU and dataset expansion](images/cnn_3_stages_multiscale_with_dataset_expansion.png)
 
-## [CNN 3 Stages Multiscale Residual with PReLU and dataset expansion](models/cnn_3_stages_multiscale_with_prelus_dataset_expansion.prototxt)
+## [CNN 3 Stages Multiscale Residual with PReLU and dataset expansion  \*](models/cnn_3_stages_multiscale_with_prelus_dataset_expansion.prototxt)
 
 ### Notes
 
