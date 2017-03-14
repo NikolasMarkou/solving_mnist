@@ -87,6 +87,8 @@ This one uses the custom dataset expansion layer that randomly transforms the in
 
 Accuracy after 3 x 500k iterations 0.9945 ~ error 0.55%
 
+![CNN 3 Layer with PReLU and dataset expansion](images/cnn_3_layer_with_dataset_expansion.png)
+
 ## [CNN 3 Stages Multiscale with PReLU and dataset expansion](models/cnn_3_stages_multiscale_with_dataset_expansion.prototxt)
 
 ### Notes
