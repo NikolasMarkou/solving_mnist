@@ -50,6 +50,8 @@ Accuracy after 500k iterations 0.983 ~ error 1.17%
 
 Faster convergence than ReLU
 
+![Linear Classifier](images/2_layer_NN_prelu.png)
+
 ## [NN 3 Layer 256 - 128 - 10 with PReLu](models/3_layer_NN_256_128_10.prototxt)
 
 ### Notes
