@@ -12,6 +12,8 @@ All examples are trained and tested within the [caffe franework](caffe.berkeleyv
 
 Custom layers will be noted with and asterisk.
 
+Networks are visualized in [netscope](https://ethereon.github.io/netscope/#/editor)
+
 ## Preprocessing 
 
 * Pixels are scaled from [0 256] to [-1 +1].
