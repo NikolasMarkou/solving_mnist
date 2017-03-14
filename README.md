@@ -20,7 +20,7 @@ Networks are visualized in [netscope](https://ethereon.github.io/netscope/#/edit
 
 * Randomly zeroing pixels out with 1% probability
 
-* Cropping window of 25x25
+* Cropping window of 25x25 to 27x27
 
 ## Regularization
 
