@@ -42,7 +42,7 @@ Number of parameters : 6260
 
 Accuracy after 500k iterations 0.983 ~ error 1.17%
 
-![Linear Classifier](images/2_layer_NN_relu.png)
+![NN 2 Layer with ReLU](images/2_layer_NN_relu.png)
 
 ## [NN 2 Layer with PReLU](models/2_layer_NN_prelu.prototxt)
 
@@ -52,13 +52,15 @@ Accuracy after 500k iterations 0.983 ~ error 1.17%
 
 Faster convergence than ReLU
 
-![Linear Classifier](images/2_layer_NN_prelu.png)
+![NN 2 Layer with PReLU](images/2_layer_NN_prelu.png)
 
-## [NN 3 Layer 256 - 128 - 10 with PReLu](models/3_layer_NN_256_128_10.prototxt)
+## [NN 3 Layer 256 - 128 - 10 with PReLU](models/3_layer_NN_256_128_10.prototxt)
 
 ### Notes
 
 Accuracy after 500k iterations 0.986 ~ error 1.14%
+
+![NN 3 Layer 256 - 128 - 10 with PReLU](images/3_layer_NN_256_128_10.png)
 
 ## [NN 3 Layer 256 - 128 - 10 with PReLU and dataset expansion layer](models/3_layer_NN_256_128_10_with_dataset_expansion.prototxt)
 
