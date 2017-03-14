@@ -84,3 +84,13 @@ Accuracy after 3 x 500k iterations 0.9945 ~ error 0.55%
 This one uses the custom dataset expansion layer that randomly transforms the input with noise and affine transformations
 
 Accuracy after 3 x 500k iterations 0.9952 ~ error 0.48%
+
+## [CNN 3 Stages Multiscale Residual with PReLU and dataset expansion](models/cnn_3_stages_multiscale_with_prelus_dataset_expansion.prototxt)
+
+### Notes
+
+This one uses the custom dataset expansion layer that randomly transforms the input with noise and affine transformations
+
+Uses Residual network topology for faster convergence and higher accuracy
+
+Accuracy after 500k iterations 0.9955 ~ error 0.45%
