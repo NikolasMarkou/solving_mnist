@@ -20,17 +20,19 @@ Networks are visualized in [netscope](https://ethereon.github.io/netscope/#/edit
 
 ## Preprocessing 
 
-* Pixels are scaled from [0 256] to [-1 +1].
+* Pixels are scaled from [0 255] to [-1 +1].
 
 * Randomly zeroing pixels out with 1% probability
 
 * Cropping window of 25x25 to 27x27
 
-* Custom Affine and noise transformation layer in some networks (called data_vision layer)
+* Custom affine and noise transformation layer in some networks (called data_vision layer)
 
 ## Regularization
 
-* weight decay 
+* weight on parameters
+
+* dropout between layers
 
 ## [Linear Classifier - Baseline](models/linear_classifier.prototxt)
 
