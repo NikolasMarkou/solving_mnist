@@ -48,6 +48,19 @@ layer {
   }
 }
 ############################
+## Scale from [0-255] [-1 +1]
+layer {
+  name: "data/scaling"
+  type: "Power"
+  bottom: "data"
+  top: "data"
+  power_param {
+    power: 1
+    scale: 0.0078125
+    shift: -1.0
+  }
+}
+############################
 layer {
   name: "data_vision"
   type: "VisionTransformation"
@@ -57,41 +70,24 @@ layer {
     noise_mean : 0.0
     noise_std : 0.0
     noise_std_small : 0.0
-    rotate_min_angle : -22.5
-    rotate_max_angle : 22.5
+    rotate_min_angle : -20
+    rotate_max_angle : 20
     rotate_fill_value : 0.0
     per_pixel_multiplier_mean : 1.0
-    per_pixel_multiplier_std : 0.0
-    rescale_probability : 0.5
+    per_pixel_multiplier_std : 0.00
+    rescale_probability : 0.25
     constant_multiplier_mean : 1.0
     constant_multiplier_std : 0.00
     constant_multiplier_color_mean : 0.0
     constant_multiplier_color_std : 0.0
     scale_mean : 1.0
-    scale_std : 0.1
-    value_cap_min : 0
-    value_cap_max : 255
+    scale_std : 0.25
+    value_cap_min : -1
+    value_cap_max : 1
     passthrough_probability : 0.5
   }
   include {
     phase: TRAIN
-  }
-}
-
-############################
-layer {
-  name: "batchNorm0"
-  type: "BatchNorm"
-  bottom: "data"
-  top: "batchNorm0"
-  param {
-    lr_mult: 0
-  }
-  param {
-    lr_mult: 0
-  }
-  param {
-    lr_mult: 0
   }
 }
 ############################
@@ -99,7 +95,7 @@ layer {
 layer {
   name: "conv_data_3x3"
   type: "Convolution"
-  bottom: "batchNorm0"
+  bottom: "data"
   top: "conv_data_3x3"
   param {
     lr_mult: 1
@@ -119,20 +115,16 @@ layer {
   }
 }
 
-############################
 layer {
-  name: "batchNorm1"
-  type: "BatchNorm"
+  name: "conv_data_3x3/prelu"
+  type: "ReLU"
   bottom: "conv_data_3x3"
-  top: "batchNorm1"
-  param {
-    lr_mult: 0
-  }
-  param {
-    lr_mult: 0
-  }
-  param {
-    lr_mult: 0
+  top: "conv_data_3x3"
+  prelu_param: {
+     filler:{
+        type: "constant"
+        value:0.01
+     }
   }
 }
 ############################
@@ -140,7 +132,7 @@ layer {
 layer {
   name: "conv_block0_3x3"
   type: "Convolution"
-  bottom: "batchNorm1"
+  bottom: "conv_data_3x3"
   top: "conv_block0_3x3"
   param {
     lr_mult: 1
