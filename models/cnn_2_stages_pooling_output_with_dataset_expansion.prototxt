@@ -117,7 +117,7 @@ layer {
 
 layer {
   name: "conv_data_3x3/prelu"
-  type: "ReLU"
+  type: "PReLU"
   bottom: "conv_data_3x3"
   top: "conv_data_3x3"
   prelu_param: {
