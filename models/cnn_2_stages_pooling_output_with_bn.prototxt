@@ -161,14 +161,19 @@ layer {
 }
 
 layer {
-  name: "conv_block0_3x3/relu"
+  name: "conv_block0_3x3/prelu"
   type: "ReLU"
   bottom: "conv_block0_3x3"
   top: "conv_block0_3x3"
+  prelu_param: {
+     filler:{
+        type: "constant"
+        value:0.01
+     }
+  }
 }
 
 ############################
-
 
 layer {
   name: "conv_block_output_10"
