@@ -90,6 +90,20 @@ Accuracy after 3 x 500k iterations 0.9935 ~ error 0.65%
 
 ![CNN 2 Layer with PReLU and dataset expansion](images/cnn_2_layer_dataset_expansion.png)
 
+
+## [CNN 2 Layer (16 kernels 3x3 stride 2) (64 kernels 3x3 stride 1) with PReLU, dataset expansion and pooling output \*](models/cnn_2_stages_pooling_output_with_dataset_expansion.prototxt
+)
+
+### Notes
+
+This one uses the custom dataset expansion layer that randomly transforms the input with noise and affine transformations
+
+Notice the Convolution Layer followed by a Pooling Layer at the end in contrast to the usual Fully Connected layer. This is a methodology used in SqueezeNet that manages to trade parameters/memory for accuracy.
+
+Number of parameters 16 * (3 * 3) + 64 * (3 * 3) + 10
+
+Accuracy after 500k iterations 0.963 ~ error 3.7%
+
 ## [CNN 3 Layer (64 kernels 3x3 stride 1) (256 kernels 3x3 stride 2) (64 kernels 3x3 stride 2) with PReLU and dataset expansion  \*](models/cnn_3_layer_with_dataset_expansion.prototxt)
 
 ### Notes
