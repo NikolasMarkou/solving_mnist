@@ -1,0 +1,227 @@
+name: "MNIST_NET"
+############################
+layer {
+  name: "data"
+  type: "ImageData"
+  top: "data"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  image_data_param {
+    is_color : false
+    shuffle : true
+    source: "train.txt"
+    batch_size: 300
+    mirror: false
+    crop_size: 27
+  }
+}
+layer {
+  name: "data"
+  type: "ImageData"
+  top: "data"
+  top: "label"
+  include {
+    phase: TEST
+  }
+  image_data_param {
+    is_color : false
+    shuffle : true
+    source: "test.txt"
+    batch_size: 100
+    mirror: false
+    crop_size: 27
+  }
+}
+############################
+layer {
+  name: "data_drop"
+  type: "Dropout"
+  bottom: "data"
+  top: "data"
+  dropout_param {
+    dropout_ratio: 0.05
+  }
+  include {
+    phase: TRAIN
+  }
+}
+############################
+layer {
+  name: "data_vision"
+  type: "VisionTransformation"
+  bottom: "data"
+  top: "data"
+  vision_transformation_param {
+    noise_mean : 0.0
+    noise_std : 0.0
+    noise_std_small : 0.0
+    rotate_min_angle : -22.5
+    rotate_max_angle : 22.5
+    rotate_fill_value : 0.0
+    per_pixel_multiplier_mean : 1.0
+    per_pixel_multiplier_std : 0.0
+    rescale_probability : 0.5
+    constant_multiplier_mean : 1.0
+    constant_multiplier_std : 0.00
+    constant_multiplier_color_mean : 0.0
+    constant_multiplier_color_std : 0.0
+    scale_mean : 1.0
+    scale_std : 0.1
+    value_cap_min : 0
+    value_cap_max : 255
+    passthrough_probability : 0.5
+  }
+  include {
+    phase: TRAIN
+  }
+}
+
+############################
+layer {
+  name: "batchNorm0"
+  type: "BatchNorm"
+  bottom: "data"
+  top: "batchNorm0"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+}
+############################
+
+layer {
+  name: "conv_data_3x3"
+  type: "Convolution"
+  bottom: "batchNorm0"
+  top: "conv_data_3x3"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 16
+    kernel_size: 3
+    stride: 2
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+
+############################
+layer {
+  name: "batchNorm1"
+  type: "BatchNorm"
+  bottom: "conv_data_3x3"
+  top: "batchNorm1"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+}
+############################
+
+layer {
+  name: "conv_block0_3x3"
+  type: "Convolution"
+  bottom: "batchNorm1"
+  top: "conv_block0_3x3"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+
+layer {
+  name: "conv_block0_3x3/relu"
+  type: "ReLU"
+  bottom: "conv_block0_3x3"
+  top: "conv_block0_3x3"
+}
+
+############################
+
+
+layer {
+  name: "conv_block_output_10"
+  type: "Convolution"
+  bottom: "conv_block0_3x3"
+  top: "conv_block_output_10"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 10
+    kernel_size: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+
+layer {
+  name: "pool_block_output"
+  type: "Pooling"
+  bottom: "conv_block_output_10"
+  top: "pool_block_output"
+  pooling_param {
+    pool: AVE
+    global_pooling: true
+  }
+}
+
+############################
+layer {
+  name: "loss"
+  type: "SoftmaxWithLoss"
+  bottom: "pool_block_output"
+  bottom: "label"
+  top: "loss"
+  include {
+    phase: TRAIN
+  }
+}
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "pool_block_output"
+  bottom: "label"
+  top: "accuracy"
+  include {
+    phase: TEST
+  }
+}
