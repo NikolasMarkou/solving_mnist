@@ -80,7 +80,7 @@ Accuracy after 500k iterations 0.9912 ~ error 0.88%
 
 ![NN 3 Layer 256 - 128 - 10 with PReLU and dataset expansion layer](images/3_layer_NN_256_128_10_with_dataset_expansion.png)
 
-## [CNN 2 Layer (36 kernels 3x3 stride 2) (28 kernels 3x3 stride 1) with PReLU and dataset expansion  \*](models/cnn_2_layer_dataset_expansion.prototxt)
+## [CNN 2 Layer (36 kernels 3x3 stride 2) (128 kernels 3x3 stride 1) with PReLU and dataset expansion  \*](models/cnn_2_layer_dataset_expansion.prototxt)
 
 ### Notes
 
